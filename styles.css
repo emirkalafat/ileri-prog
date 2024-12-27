@@ -1,62 +1,9 @@
 body {
-  margin: 0;
-  background: #222;
-  color: #fff;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+    border: 1px black solid;
+    height: 100%;
 }
 
-#startScreen, #scoreBoard {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #444;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  display: none;
-}
-
-#startScreen.active, #scoreBoard.active {
-  display: block;
-}
-
-#startScreen input {
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-#startScreen button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-#scoreBoard table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0;
-}
-
-#scoreBoard table, #scoreBoard th, #scoreBoard td {
-  border: 1px solid #fff;
-}
-
-#scoreBoard th, #scoreBoard td {
-  padding: 5px;
-  text-align: center;
-}
-
-canvas {
-  background: #333;
-  display: block;
-  border: 2px solid #fff;
-  margin-top: 50px;
-}
-
-.info {
-  margin: 10px 0;
+.center {
+    display: flex;
+    justify-content: center;
 }
