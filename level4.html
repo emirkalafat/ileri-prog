@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brick Breaker - Bölüm 4</title>
+    <!-- Mobil uyum için -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2>Bölüm 4</h2>
+    <div class="top-bar">
+      <div id="legend"></div>
+    </div>
+    <canvas id="gameCanvas" width="480" height="320"></canvas>
+
+    <!-- Skor Tablosu -->
+    <div id="scoreBoard">
+      <h2>Skor Tablosu</h2>
+
+      <div id="scoreTableContainer">
+        <table>
+          <thead>
+            <tr>
+              <th>Oyuncu Adı</th>
+              <th>Skor</th>
+              <th>Süre (sn)</th>
+              <th>Bölüm</th>
+              <th>Tarih</th>
+            </tr>
+          </thead>
+          <tbody id="scoreTableBody"></tbody>
+        </table>
+      </div>
+      
+      <button onclick="restartGame()">Tekrar Oyna</button>
+      <button onclick="goHome()">Ana Sayfa</button>
+    </div>
+
+    <script type="module" src="scripts/level4.js"></script>
+  </body>
+</html>
