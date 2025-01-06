@@ -11,7 +11,7 @@ import {
 const level6Config = {
   rowCount: 10,
   columnCount: 20,
-  brickWidth: 20,
+  brickWidth: 17,
   brickHeight: 10,
   brickPadding: 5,
   brickOffsetTop: 50,
@@ -29,15 +29,19 @@ const level6Config = {
 const customBricks = [];
 for (let c = 0; c < level6Config.columnCount; c++) {
   customBricks[c] = [];
-  if (c == 1) continue;
-  if (c == level6Config.columnCount - 1) continue;
   for (let r = 0; r < level6Config.rowCount; r++) {
-    if (r == 1) continue;
-    if (r == rowCount - 1) continue;
     customBricks[c][r] = {
       x: 0,
       y: 0,
-      status: 1,
+      status:
+        c == 2 ||
+        c == level6Config.columnCount - 2 ||
+        c == level6Config.columnCount / 2 - 1 ||
+        c == level6Config.columnCount / 2 ||
+        r == 2 ||
+        r == level6Config.rowCount - 3
+          ? 0
+          : 1,
       type:
         c == 0 ||
         c == level6Config.columnCount - 1 ||
