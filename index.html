@@ -3,16 +3,53 @@
 
 <head>
     <meta charset="UTF-8" />
+    <title>Brick Breaker Giriş</title>
+    <!-- Mobil uyum için -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ahmet Emir Kalafat</title>
     <link rel="stylesheet" href="styles.css" />
-</head>
+  </head>
+  <body>
+    <h1>Brick Breaker'a Hoş Geldiniz</h1>
 
-<body>
-    <div class="center">
-        <p>İleri Programala Projesi</p>
+    <!-- Kullanıcıdan isim alma alanı -->
+    <div>
+      <label for="playerName">İsminiz:</label>
+      <input type="text" id="playerName" />
+      <button onclick="storeName()">Kaydet</button>
     </div>
     <script src="script.js"></script>
 </body>
 
+    <!-- 6 bölümlük oyun seçenekleri (grid) -->
+    <div class="levelsGrid">
+      <button onclick="goToLevel(1)">Bölüm 1</button>
+      <button onclick="goToLevel(2)">Bölüm 2</button>
+      <button onclick="goToLevel(3)">Bölüm 3</button>
+      <button onclick="goToLevel(4)">Bölüm 4</button>
+      <button onclick="goToLevel(5)">Bölüm 5</button>
+      <button onclick="goToLevel(6)">Bölüm 6</button>
+    </div>
+
+    <script>
+      function storeName() {
+        const nameInput = document.getElementById("playerName");
+        const name = nameInput.value.trim();
+        if (!name) {
+          alert("Lütfen bir isim girin.");
+          return;
+        }
+        localStorage.setItem("playerName", name);
+        alert("İsim kaydedildi: " + name);
+      }
+
+      function goToLevel(levelNumber) {
+        const storedName = localStorage.getItem("playerName");
+        if (!storedName) {
+          alert("Önce isminizi kaydedin.");
+          return;
+        }
+        window.location.href = `level${levelNumber}.html`;
+      }
+    </script>
+  </body>
 </html>

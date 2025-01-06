@@ -1,9 +1,188 @@
 body {
-    border: 1px black solid;
-    height: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: #222;
+  color: #fff;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 300px; /* çok geniş olmasın */
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.top-bar {
+  display: flex;
+  flex-wrap: wrap; /* dar ekranda alta kayar */
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 0 0 auto; /* boyutu içeriğe göre */
+}
+
+/* Grid alanı */
+.levelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  /* auto-fill sayesinde ekrana göre sütun sayısı ayarlanır */
+}
+
+.levelsGrid button {
+  width: 100%;
+  border: none;
+  background-color: #00bcd4;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  /* Küçük ekranda biraz daha ufaltmalar yapabilirsiniz */
+  body {
+    padding: 10px;
+  }
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  input[type="text"] {
+    max-width: 200px;
+  }
+}
+
+#startScreen,
+#scoreBoard {
+  /* mobilde tam ekran açabilirsiniz veya ortalayabilirsiniz */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  padding: 20px;
+  border-radius: 8px;
+  display: none; /* default gizli */
+  max-width: 90%; /* mobilde kenarlardan taşmasın */
+  z-index: 99; /* Canvas veya diğer katmanların üstünde */
+}
+
+#startScreen.active,
+#scoreBoard.active {
+  display: block;
+}
+
+#startScreen input {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#startScreen button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#scoreBoard button {
+  pointer-events: auto;
+}
+
+#scoreBoard table,
+#scoreBoard th,
+#scoreBoard td {
+  border: 1px solid #fff;
+}
+
+#scoreBoard th,
+#scoreBoard td {
+  padding: 5px;
+  text-align: center;
+}
+
+#scoreTableContainer {
+  max-height: 500px; /* sabit yükseklik */
+  overflow-y: auto; /* Dikey kaydırma */
+  -webkit-overflow-scrolling: touch; /* iOS'ta yumuşak kaydırma için */
+  touch-action: pan-y; /* Dokunma eylemini dikey kaydırmaya izin ver */
+}
+
+/* Varsa mevcut tablo stilleri */
+#scoreBoard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#scoreBoard th,
+#scoreBoard td {
+  border: 1px solid #fff;
+  padding: 5px;
+  text-align: center;
+  /* beyaz çizgiler için, isterseniz silebilirsiniz */
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #fff;
+}
+
+.info {
+  margin: 10px 0;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap; /* dar ekranda alta kayar */
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#legend {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Renk kutuları arasında boşluk */
+}
+
+/* Legend içindeki her bir renk kutusu+text sırasını .legend-item yapabilirsiniz */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-color-box {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
 }
