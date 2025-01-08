@@ -60,7 +60,7 @@ for (let c = 0; c < level6Config.columnCount; c++) {
 }
 level6Config.bricks = customBricks;
 
-setLevelConfig(level6Config);
+setLevelConfig(level6Config,   6);
 
 initGame();
 startGame();

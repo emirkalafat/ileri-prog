@@ -26,7 +26,7 @@ const level1Config = {
 };
 
 // Seviye konfigürasyonunu common.js’e iletelim
-setLevelConfig(level1Config);
+setLevelConfig(level1Config, 1);
 
 // Oyun başlangıç ayarları (eventListener fln.)
 initGame();

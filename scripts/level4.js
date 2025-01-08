@@ -52,7 +52,7 @@ for (let c = 0; c < level4Config.columnCount; c++) {
 }
 level4Config.bricks = customBricks;
 
-setLevelConfig(level4Config);
+setLevelConfig(level4Config,   4);
 
 initGame();
 startGame();

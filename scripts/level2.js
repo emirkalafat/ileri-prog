@@ -37,7 +37,7 @@ for (let c = 0; c < 8; c++) {
 }
 level2Config.bricks = customBricks;
 
-setLevelConfig(level2Config);
+setLevelConfig(level2Config,   2);
 
 initGame();
 startGame();

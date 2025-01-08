@@ -31,6 +31,7 @@ if (!playerName) {
 let gameStarted = false;
 let gameOver = false;
 let gameStartTime = 0;
+let currentLevel = 0;
 
 let x, y, dx, dy;
 let paddleX = 0;
@@ -83,7 +84,8 @@ let brickTypes = [
     }
     ```
 */
-export function setLevelConfig(config) {
+export function setLevelConfig(config, level) {
+  currentLevel = level; // Şu anki bölümü takip etmek için
   if (config.rowCount) brickRowCount = config.rowCount;
   if (config.columnCount) brickColumnCount = config.columnCount;
   if (config.brickWidth) brickWidth = config.brickWidth;
@@ -340,7 +342,7 @@ function drawTimer() {
 }
 
 /** Oyun Bitişi */
-export function endGame(won, level = 1) {
+export function endGame(won) {
   gameOver = true;
   const endTime = Date.now();
   const elapsed = Math.floor((endTime - gameStartTime) / 1000);
@@ -351,7 +353,7 @@ export function endGame(won, level = 1) {
     name: playerName,
     score: score,
     duration: elapsed,
-    level,
+    level: currentLevel,
   });
 
   // Skor tablosu göster

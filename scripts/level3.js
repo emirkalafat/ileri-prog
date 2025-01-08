@@ -46,7 +46,7 @@ for (let c = 0; c < level3Config.columnCount; c++) {
 }
 level3Config.bricks = customBricks;
 
-setLevelConfig(level3Config);
+setLevelConfig(level3Config,   3);
 
 initGame();
 startGame();
