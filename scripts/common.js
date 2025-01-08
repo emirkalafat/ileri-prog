@@ -293,15 +293,33 @@ function collisionDetection() {
     for (let r = 0; r < brickRowCount; r++) {
       const b = levelBricks[c][r];
       if (b.status === 1) {
+        // Topun kenarlarını dikkate alarak çarpışma kontrolü
+        const ballLeft = x - ballRadius;
+        const ballRight = x + ballRadius;
+        const ballTop = y - ballRadius;
+        const ballBottom = y + ballRadius;
+
+        const brickLeft = b.x;
+        const brickRight = b.x + brickWidth;
+        const brickTop = b.y;
+        const brickBottom = b.y + brickHeight;
+
         if (
-          x > b.x &&
-          x < b.x + brickWidth &&
-          y > b.y &&
-          y < b.y + brickHeight
+          ballRight > brickLeft &&
+          ballLeft < brickRight &&
+          ballBottom > brickTop &&
+          ballTop < brickBottom
         ) {
-          dy = -dy;
+          // Çarpışma durumunda top yönünü değiştir
+          if (ballBottom - dy <= brickTop || ballTop - dy >= brickBottom) {
+            dy = -dy; // Dikey çarpışma
+          } else {
+            dx = -dx; // Yatay çarpışma
+          }
+
           b.status = 0;
           score += b.type.score;
+
           if (checkWin()) {
             endGame(true);
           }
